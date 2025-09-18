@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ov2nhkdxox7q"
+path="res://.godot/imported/satellite.obj-6e84bf68266224f9ba746a5f1824ce20.mesh"
+
+[deps]
+
+files=["res://.godot/imported/satellite.obj-6e84bf68266224f9ba746a5f1824ce20.mesh"]
+
+source_file="res://assets/models/Radio_Parts/satellite.obj"
+dest_files=["res://.godot/imported/satellite.obj-6e84bf68266224f9ba746a5f1824ce20.mesh", "res://.godot/imported/satellite.obj-6e84bf68266224f9ba746a5f1824ce20.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
