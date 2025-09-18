@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://duk5rec1ow1wt"]
+[gd_scene load_steps=13 format=3 uid="uid://duk5rec1ow1wt"]
 
 [ext_resource type="PackedScene" uid="uid://cokjquv35t73x" path="res://assets/models/Platformer_Kit/tree-pine-snow-small.glb" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://g82jw27wc4yl" path="res://assets/models/Platformer_Kit/tree-pine-snow.glb" id="2_kek77"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://do8gwol1mss81" path="res://assets/models/Radio_Parts/Battery.glb" id="8_vivmo"]
 [ext_resource type="ArrayMesh" uid="uid://ov2nhkdxox7q" path="res://assets/models/Radio_Parts/satellite.obj" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://buikxyrc77vu5" path="res://assets/models/Radio_Parts/Electronic_Component.glb" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://b1c3b7esir8et" path="res://player.tscn" id="11_efxa6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_efxa6"]
+size = Vector3(0.395737, 0.0922852, 0.403046)
 
 [node name="Main" type="Node3D"]
 
@@ -85,14 +89,40 @@ transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 6.66419, -0.030611, -21.1848)
 [node name="MainPlatform" parent="Terrain" instance=ExtResource("5_dg77c")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -25.9945, 0)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/MainPlatform"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/MainPlatform/StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.00598907, 0.275076, -0.00724792)
+shape = SubResource("BoxShape3D_efxa6")
+
 [node name="block-snow-overhang-large-slope-steep2" parent="Terrain" instance=ExtResource("6_ycdy4")]
 transform = Transform3D(14.9995, 0, 0.0783642, 0, 10, 0, -0.117547, 0, 9.99969, 34.704, 0, -20.9896)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/block-snow-overhang-large-slope-steep2"]
+transform = Transform3D(0.999996, -0.00268942, 0.000745402, 0.00268942, 0.85732, -0.514777, 0.000745402, 0.514777, 0.857324, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/block-snow-overhang-large-slope-steep2/StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0334167, 0.275076, -0.0993347)
+shape = SubResource("BoxShape3D_efxa6")
 
 [node name="block-snow-large-slope-steep-narrow2" parent="Terrain" instance=ExtResource("7_w48qg")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -35.395, 0, -21.7447)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/block-snow-large-slope-steep-narrow2"]
+transform = Transform3D(1, 0, 0, 0, 0.857482, -0.514514, 0, 0.514514, 0.857482, 0, 0.12296, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/block-snow-large-slope-steep-narrow2/StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5.00001, -9.53674e-07, 0, 9.53674e-07, 5.00001, -0.0334167, 0.275076, -0.0993348)
+shape = SubResource("BoxShape3D_efxa6")
+
 [node name="Terrain2" parent="Terrain" instance=ExtResource("5_dg77c")]
-transform = Transform3D(46, 0, 0, 0, 22, 0, 0, 0, 10, 1.92703, 0.753582, -41.128)
+transform = Transform3D(46, 0, 0, 0, 22, 0, 0, 0, 10, 1.92703, -0.943925, -41.128)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/Terrain2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Terrain2/StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0334167, 0.275076, -0.0993347)
+shape = SubResource("BoxShape3D_efxa6")
 
 [node name="Parts" type="Node3D" parent="."]
 
@@ -118,3 +148,11 @@ transform = Transform3D(-0.34617, 0.252829, -0.257379, -0.202894, -0.431367, -0.
 
 [node name="Electronic_Component2" parent="Parts" instance=ExtResource("10_4c57u")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 13.147, 0.326738, -23.0798)
+
+[node name="Player" parent="." instance=ExtResource("11_efxa6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.90583, 1.87844, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.856177, 0.516683, 0, -0.516683, 0.856177, 0, 107.906, 0)
+light_color = Color(0.9, 0.95, 1, 1)
+light_energy = 2.0
