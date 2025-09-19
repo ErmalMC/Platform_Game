@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://duk5rec1ow1wt"]
+[gd_scene load_steps=16 format=3 uid="uid://duk5rec1ow1wt"]
 
 [ext_resource type="PackedScene" uid="uid://cokjquv35t73x" path="res://assets/models/Platformer_Kit/tree-pine-snow-small.glb" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://g82jw27wc4yl" path="res://assets/models/Platformer_Kit/tree-pine-snow.glb" id="2_kek77"]
@@ -13,7 +13,16 @@
 [ext_resource type="PackedScene" uid="uid://b1c3b7esir8et" path="res://player.tscn" id="11_efxa6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efxa6"]
-size = Vector3(0.395737, 0.0922852, 0.403046)
+size = Vector3(0.396885, 0.0909424, 0.403046)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dg77c"]
+size = Vector3(93.2926, 11.2422, 20.2657)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
+size = Vector3(19.8635, 4.90314, 20.3845)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w48qg"]
+size = Vector3(29.8658, 6.09143, 19.8478)
 
 [node name="Main" type="Node3D"]
 
@@ -92,37 +101,33 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -25.9945, 0)
 [node name="StaticBody3D" type="StaticBody3D" parent="Terrain/MainPlatform"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/MainPlatform/StaticBody3D"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.00598907, 0.275076, -0.00724792)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.0184745, 0.271719, -0.00724792)
 shape = SubResource("BoxShape3D_efxa6")
 
-[node name="block-snow-overhang-large-slope-steep2" parent="Terrain" instance=ExtResource("6_ycdy4")]
-transform = Transform3D(14.9995, 0, 0.0783642, 0, 10, 0, -0.117547, 0, 9.99969, 34.704, 0, -20.9896)
+[node name="High_Area" type="Node3D" parent="Terrain"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/block-snow-overhang-large-slope-steep2"]
-transform = Transform3D(0.999996, -0.00268942, 0.000745402, 0.00268942, 0.85732, -0.514777, 0.000745402, 0.514777, 0.857324, 0, 0, 0)
+[node name="block-snow-overhang-large-slope-steep2" parent="Terrain/High_Area" instance=ExtResource("6_ycdy4")]
+transform = Transform3D(14.9995, 0, 0.0783642, 0, 10, 0, -0.117547, 0, 9.99969, 34.704, 0, -22.6272)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/block-snow-overhang-large-slope-steep2/StaticBody3D"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0334167, 0.275076, -0.0993347)
-shape = SubResource("BoxShape3D_efxa6")
+[node name="block-snow-large-slope-steep-narrow2" parent="Terrain/High_Area" instance=ExtResource("7_w48qg")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -35.395, -2.43914, -22.5731)
 
-[node name="block-snow-large-slope-steep-narrow2" parent="Terrain" instance=ExtResource("7_w48qg")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -35.395, 0, -21.7447)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/block-snow-large-slope-steep-narrow2"]
-transform = Transform3D(1, 0, 0, 0, 0.857482, -0.514514, 0, 0.514514, 0.857482, 0, 0.12296, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/block-snow-large-slope-steep-narrow2/StaticBody3D"]
-transform = Transform3D(5, 0, 0, 0, 5.00001, -9.53674e-07, 0, 9.53674e-07, 5.00001, -0.0334167, 0.275076, -0.0993348)
-shape = SubResource("BoxShape3D_efxa6")
-
-[node name="Terrain2" parent="Terrain" instance=ExtResource("5_dg77c")]
+[node name="Terrain2" parent="Terrain/High_Area" instance=ExtResource("5_dg77c")]
 transform = Transform3D(46, 0, 0, 0, 22, 0, 0, 0, 10, 1.92703, -0.943925, -41.128)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/Terrain2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/High_Area"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Terrain2/StaticBody3D"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0334167, 0.275076, -0.0993347)
-shape = SubResource("BoxShape3D_efxa6")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/High_Area/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44041, 5.41567, -41.1087)
+shape = SubResource("BoxShape3D_dg77c")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Terrain/High_Area/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.853023, -0.521873, 0, 0.521873, 0.853023, -32.6525, 2.97857, -23.7293)
+shape = SubResource("BoxShape3D_ycdy4")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Terrain/High_Area/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.863836, -0.503774, 0, 0.503774, 0.863836, 34.8025, 3.70736, -23.6046)
+shape = SubResource("BoxShape3D_w48qg")
 
 [node name="Parts" type="Node3D" parent="."]
 
