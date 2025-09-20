@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 # Movement
-@export var speed: float = 6.0
+@export var speed: float = 10.0
 @export var jump_velocity: float = 7.0
 @export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var air_control: float = 0.25

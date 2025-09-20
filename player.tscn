@@ -19,7 +19,7 @@ shape = SubResource("CapsuleShape3D_4flbx")
 spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 0.97875, 0.20506, 0, -0.20506, 0.97875, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.978749, 0.20506, 0, -0.20506, 0.978749, 0, 0.340348, 0.050319)
 current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
