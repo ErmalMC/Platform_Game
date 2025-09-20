@@ -121,7 +121,7 @@ func _show_lose() -> void:
 		lose_panel.visible = true
 		var llbl: Label = lose_panel.get_node_or_null("LoseLabel") as Label
 		if llbl:
-			llbl.text = "You Froze! Try again..."
+			llbl.text = "Everything is frozen! Try again..."
 	Engine.time_scale = 0.0
 
 # restart / quit handlers
